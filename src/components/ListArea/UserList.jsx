@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const UserList = ({ list }) => {
+const UserList = ({ list, onDelete }) => {
   const { name, telNum, group, memo } = list;
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -16,11 +16,14 @@ const UserList = ({ list }) => {
     setIsModalOpen(!isModalOpen);
   };
 
+  const handleDeleteList = () => {};
+
   return (
     <div>
       <List>
         {name} {telNum} {group}
         <DetailInfoBtn onClick={toggleModal}>세부사항</DetailInfoBtn>
+        <DeleteInfoBtn onClick={onDelete}>삭제</DeleteInfoBtn>
       </List>
 
       {isModalOpen && (
@@ -51,6 +54,11 @@ const DetailInfoBtn = styled.button`
   width: 4rem;
   height: 2rem;
   margin-left: 1rem;
+`;
+
+const DeleteInfoBtn = styled.button`
+  width: 4rem;
+  height: 2rem;
 `;
 
 const Modal = styled.div`
