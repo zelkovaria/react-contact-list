@@ -1,23 +1,30 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
 const ListArea = () => {
   const [storageLst, setStorageList] = useState([]);
 
-  // useEffect(() => {
-  //   const storedList = localStorage.getItem('formData');
-  //   if (storedList) {
-  //     const parsedList = JSON.parse(storedList);
-  //     setStorageList(Object.values(parsedList));
-  //   }
-  // }, []);
+  const arrayList = () => {
+    const curList = JSON.parse(localStorage.getItem('formData')) || [];
+    setStorageList(curList);
+  };
 
   return (
-    <div>
-      {storageLst.map((list, index) => (
-        <li key={index}>{list}</li>
-      ))}
-    </div>
+    <ListAreaWrapper>
+      <ul>
+        {storageLst.map((list, index) => (
+          <li key={index}>
+            {list.name} {list.telNum} {list.group}
+          </li>
+        ))}
+      </ul>
+      <button onClick={arrayList}>전체 리스트 보기</button>
+    </ListAreaWrapper>
   );
 };
+
+const ListAreaWrapper = styled.div`
+  border: 2px solid pink;
+`;
 
 export default ListArea;
