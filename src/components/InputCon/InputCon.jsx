@@ -53,7 +53,7 @@ const InputCon = () => {
         title={'전화번호'}
         value={telNum}
         onChange={(value) => {
-          setTelNum(setTelNum);
+          setTelNum(value);
           validateTelNum(value);
         }}
         error={telNumError}
