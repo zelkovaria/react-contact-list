@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import './App.css';
-import InputCon from './InputCon';
+import InputCon from './components/Input/InputCon';
 import ListArea from './ListArea';
 
 function App() {

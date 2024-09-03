@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { useState } from 'react';
-import Input from './components/Input';
-import SelectEl from './components/SelectEl';
+import Input from './Input';
+import SelectEl from './SelectEl';
 
 const InputCon = () => {
   const [name, setName] = useState('');
