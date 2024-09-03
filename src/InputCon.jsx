@@ -10,9 +10,15 @@ const InputCon = () => {
 
   const handleStoreLocal = () => {
     const formData = { name, telNum, group, memo };
-    const valuesString = Object.values(formData).join(' ');
 
-    localStorage.setItem('formData', JSON.stringify(valuesString));
+    const prevData = JSON.parse(localStorage.getItem('formData')) || [];
+    const updateData = [...prevData, formData];
+    localStorage.setItem('formData', JSON.stringify(updateData));
+
+    setName('');
+    setTelNum('');
+    setGroup('');
+    setMemo('');
   };
 
   return (

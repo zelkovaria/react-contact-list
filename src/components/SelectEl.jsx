@@ -6,6 +6,10 @@ const SelectEl = ({ value, onSelect }) => {
   const [newOption, setNewOption] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const handleSelectChange = (e) => {
+    onSelect(e.target.value);
+  };
+
   const addOption = () => {
     if (newOption && !options.includes(newOption)) {
       setOptions([...options, newOption]);
@@ -24,7 +28,7 @@ const SelectEl = ({ value, onSelect }) => {
   return (
     <div>
       <span>그룹</span>
-      <select value={value} onChange={(e) => onSelect(e.target.value)}>
+      <select value={value} onChange={handleSelectChange}>
         {options.map((option, index) => (
           <option key={index} value={option}>
             {option}
@@ -46,7 +50,11 @@ const SelectEl = ({ value, onSelect }) => {
               ))}
             </ul>
           </div>
-          <input placeholder="새 그룹 이름" />
+          <input
+            value={newOption}
+            onChange={(e) => setNewOption(e.target.value)}
+            placeholder="새 그룹 이름"
+          />
           <button onClick={addOption}>추가</button>
           <button onClick={toggleModal}>닫기</button>
         </Modal>
