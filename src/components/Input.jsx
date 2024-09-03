@@ -1,8 +1,12 @@
-const Input = ({ title }) => {
+const Input = ({ title, value, onChange }) => {
   return (
     <div>
       <span>{title}</span>
-      <input placeholder={title} />
+      <input
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        placeholder={title}
+      />
     </div>
   );
 };

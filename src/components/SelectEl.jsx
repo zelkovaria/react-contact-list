@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
-const SelectEl = () => {
+const SelectEl = ({ value, onSelect }) => {
   const [options, setOptions] = useState(['가족', '친구', '직장']);
   const [newOption, setNewOption] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -24,7 +24,7 @@ const SelectEl = () => {
   return (
     <div>
       <span>그룹</span>
-      <select>
+      <select value={value} onChange={(e) => onSelect(e.target.value)}>
         {options.map((option, index) => (
           <option key={index} value={option}>
             {option}
