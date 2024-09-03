@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://{zelkovaria}.github.io/{react-contact-list}",
+  "homepage": "https://zelkovaria.github.io/react-contact-list",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
