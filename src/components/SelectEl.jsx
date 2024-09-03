@@ -39,7 +39,7 @@ const SelectEl = ({ value, onSelect }) => {
 
       {isModalOpen && (
         <Modal>
-          <div>
+          <Wrapper>
             <h2>그룹관리</h2>
             <ul>
               {options.map((option, index) => (
@@ -49,14 +49,16 @@ const SelectEl = ({ value, onSelect }) => {
                 </li>
               ))}
             </ul>
-          </div>
-          <input
-            value={newOption}
-            onChange={(e) => setNewOption(e.target.value)}
-            placeholder="새 그룹 이름"
-          />
-          <button onClick={addOption}>추가</button>
-          <button onClick={toggleModal}>닫기</button>
+          </Wrapper>
+          <Wrapper>
+            <input
+              value={newOption}
+              onChange={(e) => setNewOption(e.target.value)}
+              placeholder="새 그룹 이름"
+            />
+            <button onClick={addOption}>추가</button>
+            <button onClick={toggleModal}>닫기</button>
+          </Wrapper>
         </Modal>
       )}
     </div>
@@ -70,10 +72,21 @@ const Modal = styled.div`
   width: 300px;
   height: 300px;
   border-radius: 15px;
-  background: rgba(0, 0, 0, 0.5);
+  /* background: rgba(0, 0, 0, 0.3); */
+  background: #eaeaea;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+`;
+
+const Wrapper = styled.div`
+  margin: 1rem;
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 1rem;
+  }
 `;
 
 export default SelectEl;

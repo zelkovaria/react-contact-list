@@ -1,3 +1,4 @@
+import styled from 'styled-components';
 import { useState } from 'react';
 import Input from './components/Input';
 import SelectEl from './components/SelectEl';
@@ -27,9 +28,18 @@ const InputCon = () => {
       <Input title={'전화번호'} value={telNum} onChange={setTelNum} />
       <SelectEl value={group} onSelect={setGroup} />
       <Input title={'간단한 기록'} value={memo} onChange={setMemo} />
-      <button onClick={handleStoreLocal}>저장</button>
+      <SaveButton onClick={handleStoreLocal}>저장</SaveButton>
     </div>
   );
 };
+
+const SaveButton = styled.button`
+  border: none;
+  border-radius: 12px;
+  background-color: skyblue;
+  width: 12rem;
+  height: 3rem;
+  margin: 1rem auto;
+`;
 
 export default InputCon;

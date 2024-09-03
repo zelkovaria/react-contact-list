@@ -11,6 +11,7 @@ const ListArea = () => {
 
   return (
     <ListAreaWrapper>
+      <ListButton onClick={arrayList}>전체 리스트 보기</ListButton>
       <ul>
         {storageLst.map((list, index) => (
           <li key={index}>
@@ -18,13 +19,23 @@ const ListArea = () => {
           </li>
         ))}
       </ul>
-      <button onClick={arrayList}>전체 리스트 보기</button>
     </ListAreaWrapper>
   );
 };
 
 const ListAreaWrapper = styled.div`
   border: 2px solid pink;
+  width: 50%;
+  /* text-align: center; */
+`;
+
+const ListButton = styled.button`
+  border: none;
+  border-radius: 12px;
+  background-color: skyblue;
+  width: 12rem;
+  height: 3rem;
+  margin: 1rem auto;
 `;
 
 export default ListArea;
