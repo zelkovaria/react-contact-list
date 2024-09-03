@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Input = ({ title, value, onChange }) => {
+const Input = ({ title, value, onChange, error }) => {
   return (
     <Wrapper>
       <TitleSpan>{title}</TitleSpan>
@@ -9,6 +9,7 @@ const Input = ({ title, value, onChange }) => {
         onChange={(e) => onChange(e.target.value)}
         placeholder={title}
       />
+      {error && <ErrorMessage>{error}</ErrorMessage>}
     </Wrapper>
   );
 };
@@ -28,4 +29,8 @@ const ValueInput = styled.input`
   border-radius: 4px;
 `;
 
+const ErrorMessage = styled.div`
+  color: red;
+  margin-top: 0.5rem;
+`;
 export default Input;
