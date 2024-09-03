@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const SelectEl = ({ value, onSelect }) => {
@@ -12,18 +12,29 @@ const SelectEl = ({ value, onSelect }) => {
 
   const addOption = () => {
     if (newOption && !options.includes(newOption)) {
-      setOptions([...options, newOption]);
+      const prevOptions = JSON.parse(localStorage.getItem('groups')) || [];
+      const newOptions = [...prevOptions, newOption];
+
+      setOptions(newOptions);
+      localStorage.setItem('groups', JSON.stringify(newOptions));
+
       setNewOption('');
     }
   };
 
   const removeOption = (nowOption) => {
-    setOptions(options.filter((option) => option != nowOption));
+    const updateOptions = options.filter((option) => option !== nowOption);
+    setOptions(updateOptions);
+    localStorage.setItem('groups', JSON.stringify(updateOptions));
   };
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
+
+  useEffect(() => {
+    localStorage.setItem('groups', JSON.stringify(options));
+  }, []);
 
   return (
     <div>
