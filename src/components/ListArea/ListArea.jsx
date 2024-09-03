@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import UserList from './UserList';
 
 const ListArea = () => {
   const [storageLst, setStorageList] = useState([]);
@@ -14,9 +15,7 @@ const ListArea = () => {
       <ListButton onClick={arrayList}>전체 리스트 보기</ListButton>
       <ul>
         {storageLst.map((list, index) => (
-          <li key={index}>
-            {list.name} {list.telNum} {list.group}
-          </li>
+          <UserList key={index} list={list}></UserList>
         ))}
       </ul>
     </ListAreaWrapper>

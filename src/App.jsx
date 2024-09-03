@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import './App.css';
-import InputCon from './components/Input/InputCon';
-import ListArea from './ListArea';
+import InputCon from './components/InputCon/InputCon';
+import ListArea from './components/ListArea/ListArea';
 
 function App() {
   return (
